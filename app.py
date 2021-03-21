@@ -1,4 +1,4 @@
-from discord.ext import commands
+from discord.ext import commands, tasks
 from requests import get
 from pymongo import MongoClient
 from config import youtube_api_key, mongo_connection_token, mongo_base_collection, bot_token, youtube_api_ver, \
@@ -12,6 +12,12 @@ client = commands.AutoShardedBot(command_prefix='!')
 async def on_ready():
     print(f'[LOG] Application successfully started. Logged in as {client.user}.')
     await checkLastVideo()
+    await checkRuntime.start()
+
+
+@tasks.loop(minutes=25.0)
+async def checkRuntime():
+	await checkLastVideo()
 
 
 async def checkLastVideo():
