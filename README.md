@@ -32,9 +32,4 @@ youtube_api_key = ''
 youtube_api_ver = 3
 ```
 
-### Todos & plans
-- [ ] Finish the bot's web panel.
-- [ ] Make your own message for each server.
-- [ ] Translate to the YouTube library for Python.
-
 © [Julheer](https://github.com/julheer), 2021. Developed with ❤.
